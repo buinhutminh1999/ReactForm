@@ -2,23 +2,18 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 class ChiTietNguoiDung extends Component {
 
-// state = {
-//   valArray: [...this.props.mangNguoiDung]
-// }
   timKiemTheoTen = (event) => {
 
     let flag = [];
     if (event.target.value !== '') {
-      let a = this.props.mangNguoiDung.filter((item) => {
+      let newArr = this.props.mangNguoiDung.filter((item) => {
         return item.hoTen.toLowerCase().indexOf(event.target.value) !== -1
       })
-      console.log('dataTest', a)
-      flag = a
+      flag = newArr
     } else {
-      
+
       flag = this.props.dataReduce //trở về mảng ban đầu
-      console.log('trở về mảng ban đầu',flag)
-      // console.log('dataReduce', flag)
+
     }
 
     this.props.dispatch({
@@ -27,7 +22,7 @@ class ChiTietNguoiDung extends Component {
     })
   }
   render() {
- 
+
     return (
       <div className="row">
         <div className="col-12">

@@ -54,7 +54,7 @@ class FormDangKy extends Component {
       value: { ...this.state.value, [name]: value },
       error: { ...this.state.error, [name]: mess },
       dBlockorNone: flag
-    }, () => { console.log(this.state.error) })
+    })
   }
 
   handleOnSubmit = (event) => {

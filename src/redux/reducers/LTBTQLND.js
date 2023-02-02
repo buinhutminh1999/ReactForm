@@ -40,12 +40,10 @@ export const LTBTQLND = (state = initialState, action) => {
         case 'THEM_ND':
             state.mangNguoiDung = [...state.mangNguoiDung, action.obj]
             state.dataReduce = [...state.mangNguoiDung]
-            console.log(state.mangNguoiDung)
             return { ...state }
         case 'XEM_CHI_TIET':
             state.statusAddorUpdate = false
             state.xemChiTiet = action.xemChiTiet
-            console.log(state.xemChiTiet)
             return { ...state }
         case 'XOA_ND':
             let newArr = state.mangNguoiDung.filter(item => item.taiKhoan !== action.taiKhoanXoa)
