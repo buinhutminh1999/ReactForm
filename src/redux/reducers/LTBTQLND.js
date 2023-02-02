@@ -1,22 +1,9 @@
 const initialState = {
     mangNguoiDung: [
-        {
-            taiKhoan: '1',
-            hoTen: 'minh',
-            matKhau: '123',
-            email: 'buinhutminh1999@gmail.com',
-            sdt: '123',
-            maLoaiND: 'Khách hàng'
-        },
-        {
-            taiKhoan: '2',
-            hoTen: 'lê',
-            matKhau: '123',
-            email: 'buinhutminh1999@gmail.com',
-            sdt: '456',
-            maLoaiND: 'Khách hàng'
-        }
+       
     ],
+
+
     xemChiTiet: {
         taiKhoan: '',
         hoTen: '',
@@ -44,12 +31,15 @@ const initialState = {
         maLoaiND: ''
     },
     dBlockorNone: 'none',
+    dataReduce: []
+
 }
 
 export const LTBTQLND = (state = initialState, action) => {
     switch (action.type) {
         case 'THEM_ND':
             state.mangNguoiDung = [...state.mangNguoiDung, action.obj]
+            state.dataReduce = [...state.mangNguoiDung]
             console.log(state.mangNguoiDung)
             return { ...state }
         case 'XEM_CHI_TIET':
@@ -78,7 +68,12 @@ export const LTBTQLND = (state = initialState, action) => {
             return { ...state }
         case 'KIEM_TRA_SUBMIT':
             state.error = action.error
-          state.dBlockorNone = action.dBlockorNone
+            state.dBlockorNone = action.dBlockorNone
+            return { ...state }
+        case 'TIM_KIEM':
+
+            state.mangNguoiDung = action.flag
+
             return { ...state }
         default:
             return state
