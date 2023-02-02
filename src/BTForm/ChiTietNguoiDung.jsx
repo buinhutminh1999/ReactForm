@@ -4,17 +4,13 @@ class ChiTietNguoiDung extends Component {
 
   timKiemTheoTen = (event) => {
 
-    let flag = [];
+    let flag = this.props.dataReduce;
     if (event.target.value !== '') {
       let newArr = this.props.mangNguoiDung.filter((item) => {
         return item.hoTen.toLowerCase().indexOf(event.target.value) !== -1
       })
       flag = newArr
-    } else {
-
-      flag = this.props.dataReduce //trở về mảng ban đầu
-
-    }
+    } 
 
     this.props.dispatch({
       type: 'TIM_KIEM',

@@ -1,9 +1,5 @@
 const initialState = {
-    mangNguoiDung: [
-       
-    ],
-
-
+    mangNguoiDung: [],
     xemChiTiet: {
         taiKhoan: '',
         hoTen: '',
