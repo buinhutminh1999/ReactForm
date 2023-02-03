@@ -38,10 +38,10 @@ class FormDangKy extends Component {
       flag = 'block'
     }
 
-    if(name == 'maLoaiND' && value == 0){
+    if (name == 'maLoaiND' && value == 0) {
       flag = 'block'
       mess = `Vui lòng chọn ${name}`
-      console.log('test loại nd')
+
     }
 
     for (const key in this.state.error) {
@@ -87,20 +87,10 @@ class FormDangKy extends Component {
     this.setState({
       error: obj,
       dBlockorNone
-    }, () => { console.log(this.state.error) })
+    })
   }
 
-
-//   static getDerivedStateFromProps (newProps, currentState) {
-//     if (newProps.xemChiTiet.taiKhoan !== currentState.value.taiKhoan) {
-  
-//       return { ...currentState, value: newProps.xemChiTiet }
-//     }
-//     return currentState.value
-   
-//   }
-
-  componentWillReceiveProps(props){
+  componentWillReceiveProps(props) {
     this.setState({
       value: props.xemChiTiet
     })
@@ -111,13 +101,13 @@ class FormDangKy extends Component {
     let flag = true;
     let dBlockorNone = 'none';
     for (const key in this.state.error) {
-     if(!this.state.error[key] == ''){
-      flag = false
-    
-     }
+      if (!this.state.error[key] == '') {
+        flag = false
+
+      }
 
     }
-    if(flag){
+    if (flag) {
       this.props.dispatch({
         type: 'CAP_NHAT_VALUE',
         updateVal: this.state.value
@@ -125,7 +115,7 @@ class FormDangKy extends Component {
     }
 
 
-   }
+  }
 
   render() {
     let { taiKhoan,

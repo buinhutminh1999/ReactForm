@@ -44,14 +44,15 @@ export const LTBTQLND = (state = initialState, action) => {
         case 'XOA_ND':
             let newArr = state.mangNguoiDung.filter(item => item.taiKhoan !== action.taiKhoanXoa)
             state.mangNguoiDung = newArr
+            state.dataReduce = [...state.mangNguoiDung]
             return { ...state }
-
         case 'CAP_NHAT_VALUE':
             let index = state.mangNguoiDung.findIndex(item => item.taiKhoan == action.updateVal.taiKhoan)
-
             if (index > -1) {
+
                 state.mangNguoiDung[index] = action.updateVal
                 state.mangNguoiDung = [...state.mangNguoiDung]
+                state.dataReduce = [...state.mangNguoiDung]
                 return { ...state }
             }
             return state
